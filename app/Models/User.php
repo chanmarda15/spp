@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level'
     ];
 
     /**
@@ -41,4 +42,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     /**
+   * Has One User -> Spp
+   *
+   * @return void
+   */
+  public function spp()
+  {
+       return $this->hasOne(Spp::class);
+  }
+
+    /**
+     * Has One User -> Kelas
+     *
+     * @return void
+     */
+    public function kelas()
+    {
+        return $this->hasOne(Kelas::class);
+    }
+
+    /**
+     * Belongs To Pembayaran -> User (petugas)
+     *
+     * @return void
+     */
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class);
+    }
+
 }
