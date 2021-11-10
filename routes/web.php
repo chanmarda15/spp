@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Admin\KelasController;
 use App\Http\Controllers\Admin\PetugasController;
+use App\Http\Controllers\Admin\SppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,5 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::resource('/data-siswa', SiswaController::class);
 Route::resource('/data-kelas', KelasController::class);
 Route::resource('/data-petugas', PetugasController::class);
+Route::resource('/data-spp', SppController::class);
 
