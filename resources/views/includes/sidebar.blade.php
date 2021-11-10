@@ -16,7 +16,7 @@
         <li class="nav-item {{ Request::is('data-siswa') ? 'active' : '' }}"><a class="nav-link" href="{{ url('data-siswa') }}"><i class="fas fa-book"></i> <span>Data Siswa</span></a></li>
         <li class="nav-item {{ Request::is('data-kelas') ? 'active' : '' }}"><a class="nav-link" href="{{ url('data-kelas') }}"><i class="fas fa-book-reader"></i> <span>Data Kelas</span></a></li>
         <li class="nav-item {{ Request::is('admin/denda') ? 'active' : '' }}"><a class="nav-link" href=""><i class="fas fa-calendar-times"></i> <span>Data SPP</span></a></li>
-        <li class="nav-item {{ Request::is('admin/petugas') ? 'active' : '' }}"><a class="nav-link" href=" "><i class="fas fa-users-cog"></i> <span>Data Petugas</span></a></li>
+        <li class="nav-item {{ Request::is('admin/petugas') ? 'active' : '' }}"><a class="nav-link" href="{{ url('data-petugas') }}"><i class="fas fa-users-cog"></i> <span>Data Petugas</span></a></li>
         @endif
 
         <li class="menu-header">Transaksi   </li>
