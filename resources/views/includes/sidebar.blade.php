@@ -15,28 +15,19 @@
         <li class="menu-header">Data Master</li>
         <li class="nav-item {{ Request::is('data-siswa') ? 'active' : '' }}"><a class="nav-link" href="{{ url('data-siswa') }}"><i class="fas fa-book"></i> <span>Data Siswa</span></a></li>
         <li class="nav-item {{ Request::is('data-kelas') ? 'active' : '' }}"><a class="nav-link" href="{{ url('data-kelas') }}"><i class="fas fa-book-reader"></i> <span>Data Kelas</span></a></li>
-        <li class="nav-item {{ Request::is('admin/denda') ? 'active' : '' }}"><a class="nav-link" href="{{url('data-spp')}}"><i class="fas fa-calendar-times"></i> <span>Data SPP</span></a></li>
-        <li class="nav-item {{ Request::is('admin/petugas') ? 'active' : '' }}"><a class="nav-link" href="{{ url('data-petugas') }}"><i class="fas fa-users-cog"></i> <span>Data Petugas</span></a></li>
+        <li class="nav-item {{ Request::is('data-spp') ? 'active' : '' }}"><a class="nav-link" href="{{url('data-spp')}}"><i class="fas fa-calendar-times"></i> <span>Data SPP</span></a></li>
+        <li class="nav-item {{ Request::is('data-petugas') ? 'active' : '' }}"><a class="nav-link" href="{{ url('data-petugas') }}"><i class="fas fa-users-cog"></i> <span>Data Petugas</span></a></li>
         @endif
 
         <li class="menu-header">Transaksi   </li>
-        <li class="nav-item {{ Request::is('admin/laporan') ? 'active' : '' }}"><a class="nav-link" href=" "><i class="fas fa-file-alt"></i> <span>Entry Pembayaran</span></a></li>
-        <li class="nav-item {{ Request::is('admin/siswa') ? 'active' : '' }}"><a class="nav-link" href=" "><i class="fas fa-users"></i> <span>History Pembayaran</span></a></li>
+        <li class="nav-item {{ Request::is('pembayaran') ? 'active' : '' }}"><a class="nav-link" href="{{ url('pembayaran') }}"><i class="fas fa-file-alt"></i> <span>Entry Pembayaran</span></a></li>
+        <li class="nav-item {{ Request::is('histori-pembayaran') ? 'active' : '' }}"><a class="nav-link" href="{{ url('histori-pembayaran') }}"><i class="fas fa-users"></i> <span>History Pembayaran</span></a></li>
 
         @if(auth()->user()->level == 'admin')
         <li class="menu-header">Ekstra</li>
-        <li class="nav-item {{ Request::is('admin/petugas') ? 'active' : '' }}"><a class="nav-link" href=" "><i class="fas fa-users-cog"></i> <span>Laporan</span></a></li>
+        <li class="nav-item {{ Request::is('laporan') ? 'active' : '' }}"><a class="nav-link" href="{{ url('laporan') }}"><i class="fas fa-users-cog"></i> <span>Laporan</span></a></li>
         @endif
 
-
-        <div class="px-3 " style="margin-top: 200px">
-          <form action="{{ url ('logout')}}" method="POST">
-          @csrf
-            <button type="submit" class="btn btn-outline-danger btn-sm btn-block ">
-              <i class="fas fa-sign-out-alt"></i> <span class="hide-sidebar-mini">Logout</span>
-            </button>
-          </form>
-        </div>
       </ul>
   </aside>
 </div>

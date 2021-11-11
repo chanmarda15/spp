@@ -37,6 +37,9 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    @if(session()->has('nisn'))
+                    <a class="" href="{{ url('siswa/logout')}}"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                    @endif
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -78,6 +81,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @include('sweetalert::alert')
     </div>
 </body>
 </html>

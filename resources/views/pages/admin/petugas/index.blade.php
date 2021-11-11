@@ -50,7 +50,7 @@
                                 <td>{{ $p->level }}</td>
                                 <td>
                                     <a href="{{ route('data-petugas.edit', $p->id) }}" class="btn btn-warning">Edit</a>
-                                   <form action="{{ url('data-petugas', $p->id) }}" id="delete{{ $p->id }}" method="POST">
+                                   <form action="{{ url('data-petugas', $p->id) }}" class="d-inline" id="delete{{ $p->id }}" method="POST">
                                        @csrf
                                        @method('delete')
                                     <button type="button" class="btn btn-danger" onclick="deleteData({{ $p->id }})">Hapus</button>

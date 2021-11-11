@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Data Siswa')
+@section('title', 'History Pembayaran')
 
 @section('content')
 
@@ -7,59 +7,44 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Data Siswa</h1>
+        <h1>History Pembayaran</h1>
       </div>
 
       <div class="section-body">
         <div class="row">
             <div class="col-12">
               <div class="card">
-                <div class="card-header">
-                  <a href="{{ route('data-siswa.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Siswa</a>
-                  <!-- <div class="card-header-form">
-                    <form>
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                          <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                      </div>
-                    </form>
-                  </div> -->
-                </div>
+
                 <div class="card-body p-0">
-                  <div class="table-responsive px-3">
+                  <div class="table-responsive p-3">
                     <table id="siswaTable" class="table table-striped" >
                       <thead>
                           <tr>
                               <th>#</th>
+                              <th>Petugas</th>
                               <th>NISN</th>
-                              <th>NIS</th>
                               <th>Nama</th>
                               <th>Kelas</th>
-                              <th>No Telp</th>
-                              <th>Alamat</th>
-                              <th>Action</th>
+                              <th>Tanggal Bayar</th>
+                              <th>Bulan Bayar</th>
+                              <th>Tahun Bayar</th>
+                              <th>Jumlah Bayar</th>
+                              <!-- <th>Action</th> -->
                           </tr>
                       </thead>
                       <tbody>
-                          @foreach($siswa as $i => $sis)
+                          @foreach($pembayaran as $i => $pay)
                             <tr>
                                 <td>{{ $i += 1 }}</td>
-                                <td>{{ $sis->nisn }}</td>
-                                <td>{{ $sis->nis }}</td>
-                                <td>{{ $sis->nama }}</td>
-                                <td>{{ $sis->kelas->nama_kelas }}</td>
-                                <td>{{ $sis->no_telp }}</td>
-                                <td>{{ $sis->alamat }}</td>
-                                <td>
-                                    <a href="{{ route('data-siswa.edit', $sis->nisn) }}" class="btn btn-warning">Edit</a>
-                                   <form action="{{ url('data-siswa', $sis->nisn) }}" class="d-inline" id="delete{{ $sis->nisn }}" method="POST">
-                                       @csrf
-                                       @method('delete')
-                                    <button type="button" class="btn btn-danger" onclick="deleteData({{ $sis->nisn }})">Hapus</button>
-                                   </form>
-                                </td>
+                                <td>{{ $pay->user->name }}</td>
+                                <td>{{ $pay->nisn }}</td>
+                                <td>{{ $pay->siswa->nama }}</td>
+                                <td>{{ $pay->siswa->kelas->nama_kelas }}</td>
+                                <td>{{ $pay->tanggal_bayar }}</td>
+                                <td>{{ ucfirst($pay->bulan_bayar) }}</td>
+                                <td>{{ $pay->tahun_bayar }}</td>
+                                <td>{{  "Rp. " . number_format($pay->jumlah_bayar, 0) }}</td>
+
                             </tr>
 
                           @endforeach

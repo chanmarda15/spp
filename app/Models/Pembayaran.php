@@ -14,7 +14,7 @@ class Pembayaran extends Model
     protected $primaryKey = 'id_pembayaran';
 
     protected $fillable = [
-         'id_petugas','id_siswa', 'spp_bulan', 'jumlah_bayar'
+         'id_petugas', 'nisn', 'tanggal_bayar', 'bulan_bayar', 'tahun_bayar', 'id_spp', 'jumlah_bayar'
     ];
 
  /**
@@ -22,9 +22,9 @@ class Pembayaran extends Model
    *
    * @return void
    */
-    public function users()
+    public function user()
     {
-         return $this->belongsTo(User::class,'id_petugas', 'id_petugas');
+         return $this->belongsTo(User::class,'id_petugas', 'id');
     }
 
  /**
@@ -34,6 +34,6 @@ class Pembayaran extends Model
    */
     public function siswa()
     {
-         return $this->belongsTo(Siswa::class,'id_siswa','id','nisn');
+         return $this->belongsTo(Siswa::class,'nisn','nisn');
     }
 }

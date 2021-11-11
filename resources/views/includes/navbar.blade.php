@@ -7,6 +7,22 @@
 
   </form>
   <ul class="navbar-nav navbar-right">
-      <div class="d-sm-none d-lg-inline-block text-white">Hai, </div></a>
+    <li class="dropdown"><a href="#" data-toggle="dropdown"
+        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+        <img alt="image"
+            src="https://ui-avatars.com/api/?background=fff&color=0D8ABC&bold=true&name={{ Auth::user()->name }}"
+            class="rounded-circle mr-1">
+        <div class="d-sm-none d-lg-inline-block">Hello, {{ Auth::user()->name }}</div>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-title">INFORMASI USER</div>
+        <form action="{{ url('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="dropdown-item text-danger text-small">
+                <i class="fas fa-sign-out-alt"></i> &nbsp; Keluar
+            </button>
+        </form>
+    </div>
+</li>
   </ul>
 </nav>

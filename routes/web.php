@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Admin\KelasController;
 use App\Http\Controllers\Admin\PetugasController;
 use App\Http\Controllers\Admin\SppController;
+use App\Http\Controllers\Admin\PembayaranController;
+use App\Http\Controllers\Admin\HistoryController;
+use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\SiswaLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +38,14 @@ Route::resource('/data-kelas', KelasController::class);
 Route::resource('/data-petugas', PetugasController::class);
 Route::resource('/data-spp', SppController::class);
 
+Route::resource('/pembayaran', PembayaranController::class);
+Route::get('/histori-pembayaran', [HistoryController::class, 'index']);
+Route::get('/laporan', [LaporanController::class, 'index']);
+Route::post('/getlaporan', [LaporanController::class, 'getPembayaran']);
+Route::post('/laporan/export', [LaporanController::class, 'export']);
+
+// Siswa
+Route::get('/login/siswa', [SiswaLoginController::class, 'siswaLogin']);
+Route::post('/login/siswa/proses', [SiswaLoginController::class, 'login']);
+Route::get('/siswa/histori', [SiswaLoginController::class, 'index'])->name('histori');
+Route::get('/siswa/logout', [SiswaLoginController::class, 'logout']);

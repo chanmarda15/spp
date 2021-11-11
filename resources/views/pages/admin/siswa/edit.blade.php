@@ -32,7 +32,7 @@
                           </div>
                           <div class="form-group">
                             <label>NIS</label>
-                            <input type="text"class="form-control @error('nisn') is-invalid @enderror" name="nis" id="nis" value="{{ $siswa->nis }}" required>
+                            <input type="text"class="form-control @error('nis') is-invalid @enderror" name="nis" id="nis" value="{{ $siswa->nis }}" required>
                           </div>
                           <div class="form-group">
                             <label>Nama</label>
@@ -44,7 +44,7 @@
                           </div>
                           <div class="form-group">
                             <label>Kelas</label>
-                            <select name="kelas" class="custom-select @error('kelas') is-invalid @enderror" {{ count($kelas) == 0 ? 'disabled' : '' }}>
+                            <select name="id_kelas" class="custom-select @error('id_kelas') is-invalid @enderror" {{ count($kelas) == 0 ? 'disabled' : '' }}>
                                 @if(count($kelas) == 0)
                                    <option>Pilihan tidak ada</option>
                                 @else

@@ -143,8 +143,7 @@ class SiswaController extends Controller
             'nisn' => 'required|numeric',
             'nis' => 'required|numeric',
             'nama' => 'required',
-            'password' => 'required',
-            'kelas' => 'required|integer',
+            'id_kelas' => 'required|integer',
             'no_telp' => 'required|numeric',
             'alamat' => 'required',
             'spp' => 'required|integer',
@@ -156,7 +155,7 @@ class SiswaController extends Controller
                'nis' => $request->nis,
                'nama' => $request->nama,
                'password' => Hash::make($request->password),
-               'id_kelas' => $request->kelas,
+               'id_kelas' => $request->id_kelas,
                'no_telp' => $request->no_telp,
                'alamat' => $request->alamat,
                'id_spp' => $request->spp

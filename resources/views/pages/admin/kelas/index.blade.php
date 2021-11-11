@@ -46,7 +46,7 @@
                                 <td>{{ $kls->kompetensi_keahlian }}</td>
                                 <td>
                                     <a href="{{ route('data-kelas.edit', $kls->id_kelas) }}" class="btn btn-warning">Edit</a>
-                                   <form action="{{ url('data-kelas', $kls->id_kelas) }}" id="delete{{ $kls->id_kelas }}" method="POST">
+                                   <form action="{{ url('data-kelas', $kls->id_kelas) }}" class="d-inline" id="delete{{ $kls->id_kelas }}" method="POST">
                                        @csrf
                                        @method('delete')
                                     <button type="button" class="btn btn-danger" onclick="deleteData({{ $kls->id_kelas }})">Hapus</button>

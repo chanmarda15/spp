@@ -46,7 +46,7 @@
                                 <td>{{ $spp->nominal }}</td>
                                 <td>
                                     <a href="{{ route('data-spp.edit', $spp->id_spp) }}" class="btn btn-warning">Edit</a>
-                                   <form action="{{ url('data-spp', $spp->id_spp) }}" id="delete{{ $spp->id_spp }}" method="POST">
+                                   <form action="{{ url('data-spp', $spp->id_spp) }}" class="d-inline" id="delete{{ $spp->id_spp }}" method="POST">
                                        @csrf
                                        @method('delete')
                                     <button type="button" class="btn btn-danger" onclick="deleteData({{ $spp->id_spp }})">Hapus</button>
