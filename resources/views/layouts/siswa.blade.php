@@ -31,22 +31,22 @@
 
         </form>
         <ul class="navbar-nav navbar-right">
-          <li class="dropdown"><a href="#" data-toggle="dropdown"
-              class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+          <li>
+              <a href="#" data-toggle="dropdown"
+              class="nav-link nav-link-lg nav-link-user">
               <img alt="image"
                   src="https://ui-avatars.com/api/?background=fff&color=0D8ABC&bold=true&name={{ session('nama') }}"
                   class="rounded-circle mr-1">
               <div class="d-sm-none d-lg-inline-block">Hello, {{ session('nama') }}</div>
           </a>
-          <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">INFORMASI USER</div>
-              <form action="{{ url('siswa/logout') }}" method="GET">
-                  @csrf
-                  <button type="submit" class="dropdown-item text-danger text-small">
-                      <i class="fas fa-sign-out-alt"></i> &nbsp; Keluar
-                  </button>
-              </form>
-          </div>
+      </li>
+      <li>
+        <form action="{{ url('siswa/logout') }}" method="GET">
+          @csrf
+          <button type="submit" class="btn btn-link link-danger" title="Logout" data-toggle="tooltip">
+            <i class="fas fa-sign-out-alt" style="color: red;"></i>
+          </button>
+        </form>
       </li>
         </ul>
       </nav>

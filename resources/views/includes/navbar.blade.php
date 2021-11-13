@@ -2,7 +2,6 @@
   <form class="form-inline mr-auto">
     <ul class="navbar-nav mr-3">
       <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-      <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
     </ul>
 
   </form>
@@ -14,13 +13,11 @@
       </a>
     </li>
     <li>
-      <form action="{{ url('logout') }}" method="POST">
+      <form action="{{ route('logout') }}" method="POST">
         @csrf
-        <a href="#" class="nav-link nav-link-lg link-danger">
-          <i class="fas fa-sign-out-alt"></i>
-        <!-- <button type="submit" class="btn btn-outline-danger">
-        </button> -->
-        </a>
+        <button type="submit" class="btn btn-link link-danger" title="Logout" data-toggle="tooltip">
+          <i class="fas fa-sign-out-alt" style="color: red;"></i>
+        </button>
       </form>
     </li>
   </ul>
