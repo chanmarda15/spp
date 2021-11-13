@@ -177,7 +177,7 @@
                                 <div class="col">
                                   <fieldset class="form-group">
                                     <label>Nominal</label>
-                                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" value="{{ request()->get('nisn') ? 'Rp. ' . number_format($siswa->spp->nominal, 0) : '' }}" readonly>
+                                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" value="{{ request()->get('nisn') ? 'Rp. ' . number_format($siswa->spp->nominal, 0,'', '.') : '' }}" readonly>
                                   </fieldset>
                                 </div>
                                 <div class="col">
@@ -236,11 +236,14 @@
                                <tr>
                                     <td>{{ $i += 1 }}</td>
                                     <td>{{ $spp->user->name }}</td>
-                                    <td>{{ $spp->tanggal_bayar }}</td>
+                                    <td>{{ Carbon\Carbon::parse($spp->tanggal_bayar)->format('d-m-Y') }}</td>
                                     <td>{{ ucfirst($spp->bulan_bayar) }}</td>
                                     <td>{{ $spp->tahun_bayar }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Cetak</a>
+                                        <form action="{{ url('pembayaran/cetak', $spp->id_pembayaran) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-info">Cetak</button>
+                                        </form>
                                     </td>
                                </tr>
                                @empty

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Siswa;
 use App\Models\Pembayaran;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class PembayaranController extends Controller
 {
@@ -103,6 +104,19 @@ class PembayaranController extends Controller
         }
 
          return back();
+    }
+
+    public function export(Request $request, $id_pembayaran) {
+
+        $pembayaran = Pembayaran::findOrFail($id_pembayaran);
+
+        PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+
+
+        $pdf = PDF::loadView('pages.admin.pembayaran.cetak', [
+            'pembayaran' => $pembayaran
+        ]);
+        return $pdf->download('LAPORAN PEMBAYARAN SPP ' . strtoupper($pembayaran->siswa->nama) . " " . date('d M Y') . '.pdf');
     }
 
     /**

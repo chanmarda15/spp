@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Data Siswa')
+@section('title', 'Data Petugas')
 
 @section('content')
 
@@ -7,7 +7,7 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Data Siswa</h1>
+        <h1>Data Petugas</h1>
       </div>
 
       <div class="section-body">
@@ -40,11 +40,14 @@
                             <label>Password</label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="{{ old('password') }}" required>
                           </div>
-                          <select name="level" class="custom-select @error('level') is-invalid @enderror">							
-                              <option value="">Silahkan Pilih</option>											
-                              <option value="admin">admin</option>
-                              <option value="petugas">petugas</option>
-                          </select>
+                          <div class="form-group">
+                            <label for="">Level</label>
+                            <select name="level" class="custom-select @error('level') is-invalid @enderror">
+                                <option value="">Silahkan Pilih</option>
+                                <option value="admin">admin</option>
+                                <option value="petugas">petugas</option>
+                            </select>
+                          </div>
                         </div>
                         <div class="card-footer text-right">
                           <button type="submit" class="btn btn-primary">Simpan</button>

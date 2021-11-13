@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Data Siswa')
+@section('title', 'Data Petugas')
 
 @section('content')
 
@@ -7,7 +7,7 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Data Siswa</h1>
+        <h1>Data Petugas</h1>
       </div>
 
       <div class="section-body">
@@ -15,7 +15,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <a href="{{ route('data-petugas.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Kelas</a>
+                  <a href="{{ route('data-petugas.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Petugas</a>
                   <!-- <div class="card-header-form">
                     <form>
                       <div class="input-group">

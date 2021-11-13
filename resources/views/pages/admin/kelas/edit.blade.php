@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Data Siswa')
+@section('title', 'Data Kelas')
 
 @section('content')
 
@@ -7,7 +7,7 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Edit Data Siswa</h1>
+        <h1>Edit Data Kelas</h1>
       </div>
 
       <div class="section-body">

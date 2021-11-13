@@ -39,6 +39,7 @@ Route::resource('/data-petugas', PetugasController::class);
 Route::resource('/data-spp', SppController::class);
 
 Route::resource('/pembayaran', PembayaranController::class);
+Route::post('/pembayaran/cetak/{id_pembayaran}', [PembayaranController::class, 'export']);
 Route::get('/histori-pembayaran', [HistoryController::class, 'index']);
 Route::get('/laporan', [LaporanController::class, 'index']);
 Route::post('/getlaporan', [LaporanController::class, 'getPembayaran']);

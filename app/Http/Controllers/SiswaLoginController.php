@@ -29,7 +29,7 @@ class SiswaLoginController extends Controller
 
         if($data){ //apakah nisn tersebut ada atau tidak
             if(Hash::check($password,$data->password)){
-                Session::put('name',$data->name);
+                Session::put('nama',$data->nama);
                 Session::put('nisn',$data->nisn);
                 Session::put('login',TRUE);
                 return redirect('siswa/histori');
@@ -51,7 +51,8 @@ class SiswaLoginController extends Controller
     }
     else{
         $data = [
-            'pembayaran' => Pembayaran::where('nisn', Session::get('nisn'))->paginate(10)
+            'pembayaran' => Pembayaran::where('nisn', Session::get('nisn'))->orderBy('tanggal_bayar', 'desc')->paginate(10),
+            'siswa' => Siswa::where('nisn', Session::get('nisn'))->get()
         ];
 
         return view('pages.siswa.index', $data);

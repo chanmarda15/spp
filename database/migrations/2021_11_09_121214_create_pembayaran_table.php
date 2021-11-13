@@ -23,7 +23,7 @@ class CreatePembayaranTable extends Migration
             $table->foreign('nisn')->references('nisn')->on('siswa')->onDelete('cascade')->onUpdate('cascade');
 
             $table->date('tanggal_bayar');
-            $table->string('bulan_bayar', 8);
+            $table->string('bulan_bayar', 25);
             $table->string('tahun_bayar', 4);
 
             $table->unsignedBigInteger('id_spp');

@@ -33,7 +33,7 @@
                                     @endif
                                 </select>
                               </div>
-                              <hr>
+                              <hr style="border-color: #f9f9f9 !important;">
                               <div class="form-group px-3">
                                   <label for="">Rentang Tanggal</label>
                                 <input type="text" name="date_from" class="form-control" placeholder="Tanggal Awal"
@@ -53,10 +53,14 @@
             </div>
             <div class="col-8">
                 <div class="card">
-                    <div class="card-header">
-                      <h5>Hasil Filter</h5>
-
-                      <div class="float-right">
+                   <div class="row">
+                       <div class="col">
+                        <div class="card-header">
+                            <h5>Hasil Filter</h5>
+                          </div>
+                       </div>
+                       <div class="col">
+                        <div class="float-right pt-3 pr-3">
                         @if ($pembayaran ?? '')
                           <form action="{{ url('laporan/export') }}" method="POST">
                               @csrf
@@ -68,6 +72,7 @@
                           @endif
                       </div>
                     </div>
+                   </div>
                     <div class="card-body p-0">
                         <div class="table-responsive p-3">
                             @if ($pembayaran ?? '')
@@ -91,7 +96,7 @@
                                     <td>{{ $v->siswa->nama }}</td>
                                     <td>{{ $v->siswa->kelas->nama_kelas }}</td>
                                     <td>{{ ucfirst($v->bulan_bayar) }}</td>
-                                    <td>{{ "Rp. " . number_format($v->jumlah_bayar, 0) }}</td>
+                                    <td>{{ "Rp. " . number_format($v->jumlah_bayar, 0, '', '.') }}</td>
                                     <td>{{ $v->tanggal_bayar }}</td>
                                 </tr>
                                 @endforeach

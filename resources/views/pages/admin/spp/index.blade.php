@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Data Siswa')
+@section('title', 'Data SPP')
 
 @section('content')
 
@@ -7,7 +7,7 @@
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Data Siswa</h1>
+        <h1>Data SPP</h1>
       </div>
 
       <div class="section-body">
@@ -15,7 +15,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <a href="{{ route('data-spp.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah spp</a>
+                  <a href="{{ route('data-spp.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah SPP</a>
                   <!-- <div class="card-header-form">
                     <form>
                       <div class="input-group">
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ $i += 1 }}</td>
                                 <td>{{ $spp->tahun }}</td>
-                                <td>{{ $spp->nominal }}</td>
+                                <td>Rp. {{ number_format($spp->nominal, 0, '', '.') }}</td>
                                 <td>
                                     <a href="{{ route('data-spp.edit', $spp->id_spp) }}" class="btn btn-warning">Edit</a>
                                    <form action="{{ url('data-spp', $spp->id_spp) }}" class="d-inline" id="delete{{ $spp->id_spp }}" method="POST">

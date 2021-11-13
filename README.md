@@ -31,11 +31,11 @@ Aplikasi Website Pembayaran SPP Dibuat Menggunakan Laravel
 
 
 ## Author
-Ahmad Alfarizki
-Chandra Maulana Saputra
-Fadhilah Nuramadhan
-Kriis Sopian
-Lukman Abdul Rafi
+- Ahmad Alfarizki
+- Chandra Maulana Saputra
+- Fadhilah Nuramadhan
+- Kriis Sopian
+- Lukman Abdul Rafi
 
 ## License
 MIT

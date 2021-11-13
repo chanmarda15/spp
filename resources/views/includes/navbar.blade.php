@@ -16,12 +16,7 @@
     </a>
     <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-title">INFORMASI USER</div>
-        <form action="{{ url('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="dropdown-item text-danger text-small">
-                <i class="fas fa-sign-out-alt"></i> &nbsp; Keluar
-            </button>
-        </form>
+
     </div>
 </li>
   </ul>

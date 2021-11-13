@@ -40,10 +40,10 @@
                                 <td>{{ $pay->nisn }}</td>
                                 <td>{{ $pay->siswa->nama }}</td>
                                 <td>{{ $pay->siswa->kelas->nama_kelas }}</td>
-                                <td>{{ $pay->tanggal_bayar }}</td>
+                                <td>{{ Carbon\Carbon::parse($pay->tanggal_bayar)->format('d-m-Y') }}</td>
                                 <td>{{ ucfirst($pay->bulan_bayar) }}</td>
                                 <td>{{ $pay->tahun_bayar }}</td>
-                                <td>{{  "Rp. " . number_format($pay->jumlah_bayar, 0) }}</td>
+                                <td>{{  "Rp. " . number_format($pay->jumlah_bayar, 0, '', '.') }}</td>
 
                             </tr>
 
