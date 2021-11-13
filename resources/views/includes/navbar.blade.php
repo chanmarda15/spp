@@ -7,17 +7,21 @@
 
   </form>
   <ul class="navbar-nav navbar-right">
-    <li class="dropdown"><a href="#" data-toggle="dropdown"
-        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-        <img alt="image"
-            src="https://ui-avatars.com/api/?background=fff&color=0D8ABC&bold=true&name={{ Auth::user()->name }}"
-            class="rounded-circle mr-1">
+    <li>
+      <a href="#" class="nav-link nav-link-lg nav-link-user">
+        <img alt="image" src="https://ui-avatars.com/api/?background=fff&color=0D8ABC&bold=true&name={{ Auth::user()->name }}" class="rounded-circle mr-1">
         <div class="d-sm-none d-lg-inline-block">Hello, {{ Auth::user()->name }}</div>
-    </a>
-    <div class="dropdown-menu dropdown-menu-right">
-        <div class="dropdown-title">INFORMASI USER</div>
-
-    </div>
-</li>
+      </a>
+    </li>
+    <li>
+      <form action="{{ url('logout') }}" method="POST">
+        @csrf
+        <a href="#" class="nav-link nav-link-lg link-danger">
+          <i class="fas fa-sign-out-alt"></i>
+        <!-- <button type="submit" class="btn btn-outline-danger">
+        </button> -->
+        </a>
+      </form>
+    </li>
   </ul>
 </nav>
