@@ -81,7 +81,7 @@
          function deleteData(id_spp){
             Swal.fire({
                     title: 'PERINGATAN!',
-                    text: "Yakin ingin menghapus data siswa? data pembayaran atas nama siswa ini pun akan dihapus jika ada.",
+                    text: "Yakin ingin menghapus data SPP? data pembayaran dan data siswa dengan SPP ini pun akan dihapus jika ada.",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',

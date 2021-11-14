@@ -85,7 +85,7 @@
          function deleteData(id){
             Swal.fire({
                     title: 'PERINGATAN!',
-                    text: "Yakin ingin menghapus data siswa? data pembayaran atas nama siswa ini pun akan dihapus jika ada.",
+                    text: "Yakin ingin menghapus data petugas?",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',

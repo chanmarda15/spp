@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kelas;
 use App\Models\Pembayaran;
 use App\Models\Siswa;
 
@@ -29,7 +30,8 @@ class HomeController extends Controller
         $pembayaran = Pembayaran::orderBy('tanggal_bayar', 'desc')->limit(5)->get();
         $trx = Pembayaran::count();
         $siswa = Siswa::count();
+        $kelas = Kelas::count();
 
-        return view('pages.admin.dashboard', compact('total', 'pembayaran', 'trx', 'siswa'));
+        return view('pages.admin.dashboard', compact('total', 'pembayaran', 'trx', 'siswa', 'kelas'));
     }
 }

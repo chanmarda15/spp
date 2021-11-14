@@ -56,7 +56,7 @@
                           </div>
                           <div class="form-group">
                             <label>Alamat</label>
-                            <textarea type="text"class="form-control @error('alamat') is-invalid @enderror" rows="5" name="alamat" id="alamat" required>{{ old('alamat') }}</textarea>
+                            <textarea class="form-control @error('alamat') is-invalid @enderror" rows="20" name="alamat" id="alamat" required>{{ old('alamat') }}</textarea>
                           </div>
                           <div class="form-group">
                             <label>No Telpon</label>
@@ -70,7 +70,7 @@
                                 @else
                                    <option value="">Silahkan Pilih</option>
                                       @foreach($spp as $value)
-                                         <option value="{{ $value->id_spp }}">{{ 'Tahun '.$value->tahun.' - '.'Rp.'.$value->nominal }}</option>
+                                         <option value="{{ $value->id_spp }}">{{ 'Tahun '.$value->tahun.' - '.'Rp. '.number_format($value->nominal,0,'.','.') }}</option>
                                       @endforeach
                                 @endif
                             </select>

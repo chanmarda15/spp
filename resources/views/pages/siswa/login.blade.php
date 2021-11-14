@@ -1,64 +1,75 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SPP</title>
+    <link rel="icon" href="{{ asset('assets/img/favicon.png') }}" type="image/x-icon"/>
+    <link rel="stylesheet" href="{{ url('../assets/css/style.css')}} ">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ url('login/siswa/proses') }}">
-                        @csrf
+</head>
 
-                        <div class="form-group row">
-                            <label for="nisn" class="col-md-4 col-form-label text-md-right">{{ __('NISN') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="nisn" type="text" class="form-control" name="nisn" value="{{ old('nisn') }}" required autocomplete="nisn" autofocus>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
-
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+<body>
+    <div id="app">
+        <section class="section">
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                <div class="login-brand">
+                  <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="80" class="">
                 </div>
+
+                <div class="card card-primary">
+                  <div class="card-header">
+                      <h4>Login Siswa</h4>
+                    </div>
+
+                    <span class="text-muted mx-3 mt-2">Silahkan login dengan NISN dan Password yang telah diberikan</span>
+                    <div class="card-body">
+                    <form method="POST" action="{{ url('login/siswa/proses') }}" class="needs-validation" novalidate="">
+                        @csrf
+                      <div class="form-group">
+                        <label for="nisn">NISN</label>
+                        <input id="nisn" type="text" class="form-control" name="nisn" tabindex="1" value="{{ old('nisn') }}" required autofocus>
+                        <div class="invalid-feedback">
+                          Please fill in your NISN
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                        <div class="invalid-feedback">
+                          please fill in your password
+                        </div>
+                      </div>
+
+                      <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                          Login
+                        </button>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+                <div class="mt-5 text-muted text-center">
+                 <p>Untuk petugas silahkan login <a href="{{ route('login') }}">disini</a></p>
+                </div>
+
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+          </div>
+        </section>
+      </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="{{ url('../assets/js/scripts.js')}} "></script>
+  @include('sweetalert::alert')
+</body>
+
+</html>

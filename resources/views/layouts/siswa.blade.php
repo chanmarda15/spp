@@ -37,7 +37,7 @@
               <img alt="image"
                   src="https://ui-avatars.com/api/?background=fff&color=0D8ABC&bold=true&name={{ session('nama') }}"
                   class="rounded-circle mr-1">
-              <div class="d-sm-none d-lg-inline-block">Hello, {{ session('nama') }}</div>
+              <div class="d-inline-block">Hello, {{ session('nama') }}</div>
           </a>
       </li>
       <li>

@@ -1,6 +1,7 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
+        <img src="{{ asset('assets/img/logo.png') }}" class="img" width="30" alt="">
       <a href="{{ url('dashboard')}}">SPP</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">

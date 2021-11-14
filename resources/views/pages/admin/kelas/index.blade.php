@@ -81,7 +81,7 @@
          function deleteData(id_kelas){
             Swal.fire({
                     title: 'PERINGATAN!',
-                    text: "Yakin ingin menghapus data siswa? data pembayaran atas nama siswa ini pun akan dihapus jika ada.",
+                    text: "Yakin ingin menghapus kelas? data siswa yang ada dikelas ini pun akan dihapus jika ada.",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',

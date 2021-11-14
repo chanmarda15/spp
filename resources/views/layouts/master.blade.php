@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>@yield('title') | SPP</title>
-  <link rel="icon" href="{{ URL::asset('favicon.png') }}" type="image/x-icon"/>
+  <link rel="icon" href="{{ asset('assets/img/favicon.png') }}" type="image/x-icon"/>
 
 
   @stack('prepend-style')
@@ -15,6 +15,12 @@
 </head>
 
 <body>
+    <div class="preloader">
+        <div class="loading text-center">
+          <img src="{{ asset('img/preloader2.gif') }}" width="150">
+          <p>Harap Tunggu</p>
+        </div>
+      </div>
   <div id="app">
     <div class="main-wrapper">
       <div class="navbar-bg"></div>
@@ -32,6 +38,11 @@
   @include('sweetalert::alert')
   @stack('prepend-script')
   @include('includes.script')
+  <script>
+    $(document).ready(function(){
+    $(".preloader").delay(300).fadeOut();
+    })
+    </script>
   @stack('addon-script')
 </body>
 </html>

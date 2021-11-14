@@ -62,15 +62,15 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
-                <div class="card-icon bg-success">
-                  <i class="fas fa-circle"></i>
+                <div class="card-icon bg-danger">
+                  <i class="fas fa-layer-group"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Online Users</h4>
+                    <h4>Total Kelas</h4>
                   </div>
                   <div class="card-body">
-                    47
+                    {{ $kelas }}
                   </div>
                 </div>
               </div>
@@ -113,11 +113,9 @@
                                 <table id="siswaTable" class="table table-striped" >
                                   <thead>
                                       <tr>
-                                          <th>#</th>
                                           <th>Petugas</th>
                                           <th>NISN</th>
                                           <th>Nama</th>
-                                          <th>Kelas</th>
                                           <th>Tanggal Bayar</th>
                                           <th>Bulan Bayar</th>
                                           <th>Tahun Bayar</th>
@@ -126,13 +124,11 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      @foreach($pembayaran as $i => $pay)
+                                      @foreach($pembayaran as $pay)
                                         <tr>
-                                            <td>{{ $i += 1 }}</td>
                                             <td>{{ $pay->user->name }}</td>
                                             <td>{{ $pay->nisn }}</td>
                                             <td>{{ $pay->siswa->nama }}</td>
-                                            <td>{{ $pay->siswa->kelas->nama_kelas }}</td>
                                             <td>{{ Carbon\Carbon::parse($pay->tanggal_bayar)->format('d-m-Y') }}</td>
                                             <td>{{ ucfirst($pay->bulan_bayar) }}</td>
                                             <td>{{ $pay->tahun_bayar }}</td>
